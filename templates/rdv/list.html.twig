@@ -1,0 +1,54 @@
+<h1>Rdv List
+</h1>
+{% if searchRdv != null  %}
+	{{ form(searchRdv)}}
+
+{% endif  %}
+	{% if list != null  %}
+		<table border="1">
+			<tr>
+				<th>
+					Id
+				</th>
+				<th>
+					Date
+				</th>
+				<th>
+					heure
+				</th>
+				<th>
+					Voyageur
+				</th>
+				<th>
+					Tél
+				</th>
+
+			</tr>
+
+
+			{% for item in list %}
+				<tr>
+					<td>
+						{{ item.id }}
+					</td>
+					<td>
+						{{ item.date | date("m/d/Y") }}
+					</td>
+					<td>
+						{{ item.heure | date('H:i')  }}
+					</td>
+					<td>
+						{{ item.voyageur.nom }}
+					</td>
+					<td>
+						{{ item.voyageur.tel }}
+					</td>
+
+				</tr>
+
+			{% endfor %}
+		{% else %}
+			<h1>
+				No Data found</h1>
+		{% endif  %}
+	</table>

@@ -1,0 +1,49 @@
+<h1>Voyageurs List
+</h1>
+<table border="1">
+	<tr>
+		<th>
+			Id
+		</th>
+		<th>
+			nom
+		</th>
+        <th>
+			tel
+		</th>
+		<th>
+			email
+		</th>
+		<th>
+			Delete
+		</th>
+
+	</tr>
+
+	{% for item in list %}
+		<tr>
+			<td>
+				{{ item.id }}
+			</td>
+			<td>
+				{{ item.nom }}
+			</td>
+            <td>
+				{{ item.tel }}
+			</td>
+			<td>
+				{{ item.email }}
+			</td>
+			<td>
+				<a href="{{ path('voyageurDelete', { id : item.id }) }}">Delete Voyageur</a>
+			</td>
+
+		</tr>
+
+	{% endfor %}
+
+
+</table>
+
+<a href="{{ path('rdvADD') }}">
+	Add New RDV</a>
